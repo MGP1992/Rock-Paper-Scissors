@@ -14,33 +14,35 @@ function getRandomInt(max) {
 
 
 function compareChoices(playerChoice, computerChoice) {
-
-    switch (playerChoice) {
-        case 'Rock':
-            if (computerChoice === 'Rock') {
-                return `It's a draw! You both picked ${computerChoice}!`
-            }else  if (computerChoice === 'Paper') {
-                return `You lose! Computer picked ${computerChoice}`
-            }else return `You win! Computer picked ${computerChoice}`
-            break;
-
-        case 'Scissors':
-            if (computerChoice === 'Rock') {
-                return `You lose! Computer picked ${computerChoice}`
-            }else  if (computerChoice === 'Paper') {
-                return `You win! computer picked ${computerChoice}`
-            }else return `It's a draw! You both picked ${computerChoice}`
-            break;
-
-        case 'Paper':
-            if (computerChoice === 'Rock') {
-                return `You win! Computer picked ${computerChoice}`
-            }else  if (computerChoice === 'Paper') {
-                return `It's a draw! You both picked ${computerChoice}`
-            }else return `You lose! Computer picked ${computerChoice}`
-            break;
+    if (playerChoice === computerChoice) {
+      return 0;
     }
-}
+  
+    switch (playerChoice) {
+      case "Rock":
+        if (computerChoice === "Scissors") {
+          return 1;
+        }
+        break;
+  
+      case "Scissors":
+        if (computerChoice === "Paper") {
+          return 1;
+        }
+        break;
+  
+      case "Paper":
+        if (computerChoice === "Rock") {
+          return 1;
+        }
+        break;
+  
+        default:
+          break;
+    }
+        return 2;
+  }
+  
 
 function handleGameCounter(){
     gameCounter++;
@@ -52,28 +54,24 @@ function playRound(choice) {
     playerSelection.textContent = `You have selected: ${choice}`;
     let computerChoice = getComputerChoice();
     let gameOutcome = (compareChoices(playerChoice, computerChoice));
-    roundResult.textContent = `${gameOutcome}`
-    if (gameOutcome.includes(`You win!`)) {
+    if (gameOutcome == 1) {
         playerWinCount ++;
         playerScore.textContent = `Current player score = ${playerWinCount}`;
         handleGameCounter();
-    }else if (gameOutcome.includes(`You lose!`)){
+        roundResult.textContent = `You win! Computer picked ${computerChoice}`
+    }else if (gameOutcome == 2){
         computerWinCount ++;
         computerScore.textContent = `Current computer score = ${computerWinCount}`;
         handleGameCounter();
+        roundResult.textContent = `You lose! Computer picked ${computerChoice}`
     }else{ 
         drawCounter++;
         gamesDrawn.textContent = `Games drawn = ${drawCounter}`;
         handleGameCounter();
+        roundResult.textContent = `It's a draw! You both picked ${computerChoice}`
     }
     
 }
-
-
-    // alert(`After 5 games the final scores are:
-    // Player: ${playerWinCount}
-    // Computer: ${computerWinCount}
-    // Games drawn: ${drawCounter}`)
 
 let gameCounter = 0;
 let playerWinCount = 0;
