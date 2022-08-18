@@ -49,6 +49,22 @@ function handleGameCounter(){
     gamesPlayed.textContent = `Games played = ${gameCounter}`
 }
 
+function gameCheck(gameCounter){
+    if(gameCounter === 5) {
+        if (playerScore > computerScore) {
+            alert("Player wins best of 5 games!")
+        }else if (playerScore < computerScore) {
+            alert("Computer wins best of 5 games!")
+        }else {alert("After 5 games it's a draw!")
+
+        location.reload();
+    }
+
+    }else return;
+
+}
+
+
 function playRound(choice) {
     let playerChoice = choice;
     playerSelection.textContent = `You have selected: ${choice}`;
@@ -70,6 +86,9 @@ function playRound(choice) {
         handleGameCounter();
         roundResult.textContent = `It's a draw! You both picked ${computerChoice}`
     }
+    gameCheck(gameCounter);
+
+
     
 }
 
