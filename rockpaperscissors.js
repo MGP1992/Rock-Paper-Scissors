@@ -60,10 +60,10 @@ function updateWinner(winner){
 }
 
 
-const selectionButton = document.querySelectorAll('div.optionBtn button');
-const roundResults = document.querySelector('#roundResults');
-const playerPoints = document.querySelector('#playerScore');
-const computerPoints = document.querySelector('#computerScore');
+const selectionButton = document.querySelectorAll('div.optionbutton button');
+const roundResults = document.querySelector('#roundresults');
+const playerPoints = document.querySelector('#playerscore');
+const computerPoints = document.querySelector('#computerscore');
 const resetButton = document.querySelector('#reset');
 
 resetButton.addEventListener('click',() => location.reload());
