@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Rock Paper Scissors Game</title>
-  <style>
-  </style>
-  </head>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" type="text/css" href="rockpaperscissors.css">
+  <script src ="rockpaperscissors.js" defer></script>
+</head>
+
 <body>
-  <div class="selections reset">
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-  </div>
+  <div class="flex">
+    <h1>Rock Paper Scissors</h1>
+    <h2>Choose either Rock, Paper or Scissors</h2>
+    <h3>First To 5 Wins!</h3>
 
-  <div class="displayselections reset">
-    <h1 id="playerselection">You have selected:</h1>
-    <h1 id="computerselection">Computer has selected:</h1>
-    <h1 id="roundresult">Choose either Rock, Paper or Scissors</h1>
-  </div>
+   
+    <div class="optionBtn">
+      <button id="0">Rock</button>
+      <button id="1">Paper</button>
+      <button id="2">Scissors</button>
+    </div>
 
-  
-  <div class ="results reset">
-    <h3 id="playerscore">Current player score = 0</h3>
-    <h3 id="computerscore">Current computer score = 0</h3>
-    <h3 id="gamesdrawn">Games drawn = 0</h3>
-    <h3 id="gamesplayed">Games played = 0</h3>
-  </div>
+    <div class="labels">
+      <span id="playerLabel">Player scores</span>
+      <span id="compLabel">Computer scores</span>
+    </div>
+    
 
- <script src="rockpaperscissors.js" defer></script>
+    <div class="scores">
+      <div id="playerScore"></div>
+      <div id="computerScore"></div>
+    </div>
+
+  <div><span id="resultsLabel">Results</label></div>
+    
+
+    <div id="roundResults"></div>
+
+  <div>
+    <button id="reset">Reset</button>
+  </div>
+   
+  </div>
 </body>
+  
 </html>
